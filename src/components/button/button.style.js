@@ -6,8 +6,8 @@ export const styles = {
         backgroundColor: COLORS.blue,
         borderRadius: 6,
         padding: 12,
-        
     },
+    
     text: {
         color: "#FFF", 
         fontSize: FONT_SIZE.md,

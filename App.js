@@ -1,16 +1,11 @@
-import { Text, View } from 'react-native';
-import Button from './src/components/button/button';
+import Login from "./src/screens/login/login.jsx";
+import Account from "./src/screens/account/account.jsx";
 
 function App() {
 
-    return (
-        <View >
-            <Text>Instagram: @jao.luisrm_</Text>
-            
-            <Button text="Isso e um teste (disabled)"/>
-        
-        </View>
-    );
+    return <>
+        <Account/>
+    </>;
 }
 
 export default App;
