@@ -1,21 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import Button from './src/components/button/button';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Jornada JS</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+function App() {
+
+    return (
+        <View >
+            <Text>Instagram: @jao.luisrm_</Text>
+            
+            <Button text="Isso e um teste (disabled)"/>
+        
+        </View>
+    );
 }
 
+export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
