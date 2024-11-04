@@ -41,7 +41,7 @@ export const styles = {
         flex: 1
     },
     containerButton: {
-
+        marginTop: 5
     },
     container: {
         flexDirection: "row"

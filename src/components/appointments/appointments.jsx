@@ -10,8 +10,9 @@ function Appointments(props) {
         </Text>
         <Text style={styles.specialty}>{props.specialty}</Text>
         <View style={styles.container}>
+
             <View style={styles.containerBooking}>
-                <View style={styles.Booking}>
+                <View style={styles.booking}>
                     <Image style={styles.icon} source={icon.calendario} />
                     <Text style={styles.bookingDate}>15/10/24</Text>
                 </View>
@@ -21,8 +22,9 @@ function Appointments(props) {
                 </View>
             </View>
             <View style={styles.containerButton}>
-                <Button text="Cancelar Reserva"/>
+                <Button text="Cancelar Reserva" theme="danger"/>
             </View>
+            
         </View>
     </View>
 }
