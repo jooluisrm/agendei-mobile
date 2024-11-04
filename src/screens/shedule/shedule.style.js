@@ -5,7 +5,9 @@ export const styles = {
         backgroundColor: COLORS.white,
         flex: 1,
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
+        justifyContent: "space-between",
+        marginBottom: 40
     },
 
     theme: {
@@ -14,5 +16,12 @@ export const styles = {
         selectedDayTextColor: COLORS.white,
         arrowColor: COLORS.blue,
     },
+
+    textHour: {
+        fontSize: FONT_SIZE.lg,
+        fontWeight: "bold",
+        color: COLORS.gray2,
+        marginTop: 20
+    }
 
 };
