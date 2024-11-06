@@ -5,6 +5,8 @@ import Button from "../../components/button/button";
 
 function Account() {
 
+    
+
     return <>
         <View style={styles.container}>
             <View style={styles.containerLogo}>
