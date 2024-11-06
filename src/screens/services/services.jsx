@@ -12,7 +12,10 @@ function Services(props) {
     const iconDoctor = props.route.params.icon;
 
     function ClickService(id_service) {
-        props.navigation.navigate("schedule");
+        props.navigation.navigate("schedule", {
+            id_doctor,
+            id_service
+        });
     }
 
     return <View style={styles.container}>

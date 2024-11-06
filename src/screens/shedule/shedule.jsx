@@ -6,13 +6,20 @@ import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import Button from "../../components/button/button";
 
-//LocaleConfig.locates["pt-BR"] = ptBR;
-//LocaleConfig.defaultLocale = "pt-BR";
+//LocaleConfig.locates["pt-br"] = ptBR;
+//LocaleConfig.defaultLocale = "pt-br";
 
-function Schedule() {
+function Schedule(props) {
+
+    const id_doctor = props.route.params.id_doctor;
+    const id_service = props.route.params.id_service;
 
     const [selectedDate, setSelectDate] = useState(new Date().toISOString().slice(0, 10));
     const [selectedHour, setSelectHour] = useState("");
+
+    function ClickBooking() {
+        console.log(id_doctor, id_service, selectedDate, selectedHour);
+    }
 
     return <View style={styles.container}>
         <View>
@@ -46,7 +53,7 @@ function Schedule() {
         </View>
         
         <View>
-            <Button text="Confirmar Reserva" />
+            <Button onPress={ClickBooking} text="Confirmar Reserva" />
         </View>
     </View>
 }
