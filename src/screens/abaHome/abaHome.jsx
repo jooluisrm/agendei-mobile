@@ -4,7 +4,12 @@ import { doctors } from "../../constants/data";
 import Doctor from "../../components/doctor/doctor";
 import icon from "../../constants/icon";
 
-function AbaHome() {
+function AbaHome(props) {
+
+    function ClickDoctor(id_doctor, name, specialty, icon) {
+        props.navigation.navigate("services");
+    }
+
     return <View style={styles.container}>
         <Text style={styles.text}>Agende os seus serviçõs médicos</Text>
 
@@ -14,9 +19,11 @@ function AbaHome() {
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
                 return <Doctor
+                    id_doctor={item.id_doctor}
                     name={item.name}
-                    icon={item.icon == "M" ? icon.male : icon.female}
+                    icon={item.icon}
                     specialty={item.specialty}
+                    onPress={ClickDoctor}
                 />
             }}
         />
