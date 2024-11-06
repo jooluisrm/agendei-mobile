@@ -5,6 +5,7 @@ import Button from "../../components/button/button";
 import { useState } from "react";
 import api from "../../constants/api";
 
+
 function Account(props) {
 
     const [name, setName] = useState("");
@@ -13,7 +14,8 @@ function Account(props) {
 
     async function ExecuteAccount() {
         try {
-            const response = await api.post("/users/login", {
+            const response = await api.post("/users/register", {
+                name,
                 email,
                 password
             });
@@ -39,23 +41,36 @@ function Account(props) {
 
             <View >
                 <View style={styles.containerInput}>
-                    <TextInput placeholder="Nome" style={styles.input} />
+                    <TextInput
+                        placeholder="Nome"
+                        style={styles.input}
+                        onChangeText={(texto) => setName(texto)}
+                    />
                 </View>
 
                 <View style={styles.containerInput}>
-                    <TextInput placeholder="E-mail" style={styles.input} />
+                    <TextInput
+                        placeholder="E-mail"
+                        style={styles.input}
+                        onChangeText={(texto) => setEmail(texto)}
+                    />
                 </View>
 
                 <View style={styles.containerInput}>
-                    <TextInput placeholder="Senha" style={styles.input} secureTextEntry={true} />
+                    <TextInput
+                        placeholder="Senha"
+                        style={styles.input}
+                        secureTextEntry={true}
+                        onChangeText={(texto) => setPassword(texto)}
+                    />
                 </View>
 
-                <Button text="Criar Conta" onPress={ExecuteAccount}/>
+                <Button text="Criar Conta" onPress={ExecuteAccount} />
             </View>
 
             <View style={styles.footer}>
                 <Text>Já tenho conta. </Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate("login")}>
+                <TouchableOpacity onPress={() => props.navigation.goBack()}>
                     <Text style={styles.footerLink}>Fazer Login.</Text>
                 </TouchableOpacity>
             </View>
