@@ -4,11 +4,16 @@ import { doctors_services } from "../../constants/data";
 import icon from "../../constants/icon";
 import Service from "../../components/services/service";
 
-function Services() {
+function Services(props) {
+
+    function ClickService(id_service) {
+        props.navigation.navigate("schedule");
+    }
+
     return <View style={styles.container}>
 
         <View style={styles.banner}>
-            <Image source={icon.female}/>
+            <Image source={icon.female} />
             <Text style={styles.name}>Heber</Text>
             <Text style={styles.specialty}>Cardiologista</Text>
         </View>
@@ -20,7 +25,12 @@ function Services() {
             keyExtractor={(serv) => serv.id_service}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
-                return <Service description={item.description} price={item.price}/>
+                return <Service
+                    id_service={item.id_service}
+                    description={item.description}
+                    price={item.price}
+                    onPress={ClickService}
+                />
             }}
         />
     </View>
