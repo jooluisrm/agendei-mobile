@@ -7,7 +7,13 @@ import icon from "../../constants/icon";
 function AbaHome(props) {
 
     function ClickDoctor(id_doctor, name, specialty, icon) {
-        props.navigation.navigate("services");
+        props.navigation.navigate("services", {
+            id_doctor, 
+            name, 
+            specialty, 
+            icon
+        });
+        console.log(icon)
     }
 
     return <View style={styles.container}>

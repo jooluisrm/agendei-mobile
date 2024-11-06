@@ -6,8 +6,8 @@ import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import Button from "../../components/button/button";
 
-//LocaleConfig.locates["pt-br"] = ptBR;
-//LocaleConfig.defaultLocale = "pt-br";
+//LocaleConfig.locates["pt-BR"] = ptBR;
+//LocaleConfig.defaultLocale = "pt-BR";
 
 function Schedule() {
 

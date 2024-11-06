@@ -6,6 +6,11 @@ import Service from "../../components/services/service";
 
 function Services(props) {
 
+    const id_doctor = props.route.params.id_doctor;
+    const name = props.route.params.name;
+    const specialty = props.route.params.specialty;
+    const iconDoctor = props.route.params.icon;
+
     function ClickService(id_service) {
         props.navigation.navigate("schedule");
     }
@@ -13,9 +18,9 @@ function Services(props) {
     return <View style={styles.container}>
 
         <View style={styles.banner}>
-            <Image source={icon.female} />
-            <Text style={styles.name}>Heber</Text>
-            <Text style={styles.specialty}>Cardiologista</Text>
+            <Image source={iconDoctor === "M" ? icon.male : icon.female} />
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.specialty}>{specialty}</Text>
         </View>
 
 
