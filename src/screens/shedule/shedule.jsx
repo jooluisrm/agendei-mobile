@@ -1,10 +1,11 @@
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import { styles } from "./shedule.style";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import { ptBR } from "../../constants/calendar.js";
 import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import Button from "../../components/button/button";
+import api from "../../constants/api";
 
 //LocaleConfig.locates["pt-br"] = ptBR;
 //LocaleConfig.defaultLocale = "pt-br";
@@ -19,6 +20,28 @@ function Schedule(props) {
 
     function ClickBooking() {
         console.log(id_doctor, id_service, selectedDate, selectedHour);
+    }
+
+    async function ClickBooking() {
+        try {
+            const response = await api.post(`/appointments`, {
+                id_doctor: id_doctor, 
+                id_service: id_service, 
+                booking_date: selectedDate, 
+                booking_hour: selectedHour
+            });
+
+            if (response.data?.id_appointment) {
+                props.navigation.popToTop();
+            }
+        } catch (error) {
+            if (error.response?.data.error) {
+                Alert.alert(error.response.data.error);
+            } else {
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde.");
+            }
+
+        }
     }
 
     return <View style={styles.container}>
