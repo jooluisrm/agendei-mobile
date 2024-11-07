@@ -56,9 +56,13 @@ function AbaCalendar() {
             renderItem={({ item }) => {
                 return <Appointments
                     id_appointment={item.id_appointment}
-                    service={item.service}
                     doctor={item.doctor}
+                    service={item.service}
                     specialty={item.specialty}
+                    bookingDate={item.booking_date}
+                    bookingHour={item.booking_hour}
+                    
+                    
                     onPress={DeleteAppointment}
                 />
             }}
