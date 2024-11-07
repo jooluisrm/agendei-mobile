@@ -23,6 +23,7 @@ function Login(props) {
             });
 
             if (response.data) {
+                api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
                 setUser(response.data);
             }
         } catch (error) {

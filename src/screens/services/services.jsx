@@ -1,8 +1,9 @@
-import { FlatList, Image, Text, View } from "react-native";
+import { Alert, FlatList, Image, Text, View } from "react-native";
 import { styles } from "./services.styles";
-import { doctors_services } from "../../constants/data";
 import icon from "../../constants/icon";
 import Service from "../../components/services/service";
+import api from "../../constants/api.js";
+import { useEffect, useState } from "react";
 
 function Services(props) {
 
@@ -11,12 +12,35 @@ function Services(props) {
     const specialty = props.route.params.specialty;
     const iconDoctor = props.route.params.icon;
 
+    const [doctorsServices, setDoctorsServices] = useState([]);
+
     function ClickService(id_service) {
         props.navigation.navigate("schedule", {
             id_doctor,
             id_service
         });
     }
+
+    async function LoadServices() {
+        try {
+            const response = await api.get(`/doctors/${id_doctor}/services`);
+
+            if (response.data) {
+                setDoctorsServices(response.data);
+            }
+        } catch (error) {
+            if (error.response?.data.error) {
+                Alert.alert(error.response.data.error);
+            } else {
+                Alert.alert("Ocorreu um erro. Tente novamente mais tarde.");
+            }
+
+        }
+    }
+
+    useEffect(() => {
+        LoadServices();
+    }, []);
 
     return <View style={styles.container}>
 
@@ -29,7 +53,7 @@ function Services(props) {
 
 
         <FlatList
-            data={doctors_services}
+            data={doctorsServices}
             keyExtractor={(serv) => serv.id_service}
             showsVerticalScrollIndicator={false}
             renderItem={({ item }) => {
