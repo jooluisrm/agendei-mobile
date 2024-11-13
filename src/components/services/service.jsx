@@ -9,12 +9,14 @@ function Service(props) {
 
         <View style={styles.containerText}>
             <Text style={styles.description}>{props.description} </Text>
-            <Text style={styles.price}>{new Intl.NumberFormat("pt-BR", {style: "currency", currency: "BRL"}).format(props.price)}</Text>
+            <Text style={styles.price}>{new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(props.price)}</Text>
+
+            <View style={styles.containerButton}>
+                <Button text="Agendar" onPress={() => props.onPress(props.id_service)} />
+            </View>
         </View>
 
-        <View style={styles.containerButton}>
-            <Button text="Agendar" onPress={() => props.onPress(props.id_service)}/>
-        </View>
+
     </View>
 }
 

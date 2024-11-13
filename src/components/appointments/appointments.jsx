@@ -24,14 +24,15 @@ function Appointments(props) {
                     <Image style={styles.icon} source={icon.clock} />
                     <Text style={styles.bookingHour}>{props.bookingHour}h</Text>
                 </View>
-            </View>
-            <View style={styles.containerButton}>
+                <View style={styles.containerButton}>
                 <Button
                     text="Cancelar Reserva"
                     theme="danger"
                     onPress={() => props.onPress(props.id_appointment)}
                 />
             </View>
+            </View>
+            
 
         </View>
     </View>
